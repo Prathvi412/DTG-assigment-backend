@@ -8,8 +8,8 @@ const TaskSchema = new mongoose.Schema({
     enum: ["assigned", "ongoing", "completed"],
     default: "assigned",
   },
-  assignedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  assignedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   createdAt: { type: Date, default: Date.now },
 });
 

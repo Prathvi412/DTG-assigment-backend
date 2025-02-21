@@ -8,6 +8,8 @@ import { Server } from "socket.io";
 import connectDB from "./config/db.js";  // Add .js extension for ES module imports
 import authRoutes from "./routes/authRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
+import projectroutes from "./routes/projectRoutes.js";
+import teamRoutes  from "./routes/teamRoutes.js";
 
 const app = express();
 const server = http.createServer(app);
@@ -18,6 +20,10 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
+app.use("/api/project",projectroutes)
+
+app.use("/api", teamRoutes);
+
 
 // Socket.io for real-time updates
 io.on("connection", (socket) => {
